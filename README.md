@@ -4,10 +4,10 @@ customers-api-demo
 
 Use cases:
 
-1.	List existing customers in the system:
-•	Calling the /customers endpoint using a get request will return a list of all customers. A consumer can poll this endpoint and keep an up-to-date copy of this API's Customers.
-•	Optionally added a queryParameter as timeSinceLastUpdate to fetch from the last modified date.
-•	The API could be enhanced to only return Customers updated/created within a specified date range by providing 2 input parameters.
+1.	List existing customers in the system: <br>
+•	Calling the /customers endpoint using a get request will return a list of all customers. A consumer can poll this endpoint and keep an up-to-date copy of this API's Customers.<br>
+•	Optionally added a queryParameter as timeSinceLastUpdate to fetch from the last modified date.<br>
+•	The API could be enhanced to only return Customers updated/created within a specified date range by providing 2 input parameters.<br>
 
 2.	Retrieving and updating customer details via a mobile application:
 •	This API enables any mobile applications to retrieve and update specific Customer details be passing the Customer id into the /Customers/{id} call using a GET or PUT.
