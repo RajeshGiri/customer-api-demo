@@ -1,0 +1,44 @@
+collection:
+    description: Collection of available <<resourcePathName>> in CRM.
+    get:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+    post:
+      description: |
+        Adds multiple <<resourcePathName>> to CRM.
+      queryParameters:
+        access_token:
+          description: "The access token provided by the authentication application"
+          example: AABBCCDD
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                  { "message": "The <<resourcePathName|!singularize>> has been properly entered" }
+    put:
+      description: |
+        Updates multiple <<resourcePathName>> in CRM.
+      queryParameters:
+        access_token:
+          description: "The access token provided by the authentication application"
+          example: AABBCCDD
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                  { "message": "The <<resourcePathName|!singularize>> has been properly entered" }

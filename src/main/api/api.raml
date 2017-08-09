@@ -1,0 +1,97 @@
+#%RAML 1.0
+title: Customers API
+version: v1
+baseUri: http://localhost:8081/api
+protocols: [ HTTP, HTTPS ]
+mediaType: application/json
+types: !include types/types.raml
+description: The customers api allows listing, creation, updating and deletion of customers
+documentation:
+ - title: Click here!
+   content: |
+     Welcome to the Customers API Documentation. 
+     The Customers API allows you to list, update, create and delete customers from our test database.
+     The repository for the application code and RAML spec can be found here on [GitHub](https://github.com/RajeshGiri/customers-api-demo)
+securitySchemes:
+  basic:
+    description: |
+        This API supports Basic Authentication
+    type: Basic Authentication
+traits:
+  compliant: !include compliant.yml
+resourceTypes: !include collections.raml
+  
+/customers:
+  type: collection
+  description: Allows for bulk operations on the API.
+  get:
+    queryParameters:
+      timeSinceLastUpdate:
+        description: "Date and time since last update"
+        example: 2017-07-04T21:00:00
+        required: false
+        type: datetime-only
+    responses:
+      200:
+        body:
+          application/json:
+            type: customers
+            example: !include examples/customers-GET-response.json
+  post:
+    body:
+      application/json:
+        type: customers
+        example: !include examples/customers-POST-PUT-request.json
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include examples/customers-GENERIC-response.json
+  put:
+    body:
+      application/json:
+        type: customers
+        example: !include examples/customers-POST-PUT-request.json
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include examples/customers-GENERIC-response.json
+  delete:
+    body:
+      application/json:
+        type: ids
+        example: !include examples/customers-DELETE-request.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/customers-GENERIC-response.json
+
+  /{id}:
+    description: Performs operations on a specific customer, given by their id.
+    get:
+      description: Returns Customer for a given ID
+      responses:
+        200:
+          body:
+            application/json:
+              type: customer
+              example: !include examples/customer-GET-response.json
+    put:
+      description: Updates a customer from a given payload.
+      body:
+          type: customer
+          example: !include examples/customer-PUT-request.json
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/customer-GENERIC-response.json
+    delete:
+      description: Deletes a customer
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/customer-GENERIC-response.json

@@ -1,0 +1,31 @@
+customer:
+  type: object
+  properties:
+    id:
+    firstName:
+    lastName:
+    addresses:
+      type: array
+      items: address
+customers:
+  type: object
+  properties:
+    customers:
+      type: array
+      items: customer
+address:
+  type: object
+  properties:
+    street:
+    city:
+    state:
+    postcode:
+    country:
+    dpid:
+ids:
+  type: object
+  properties:
+    ids:
+      type: array
+      items: string
+ 

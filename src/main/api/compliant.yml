@@ -1,0 +1,28 @@
+#%YAML 1.2
+#%RAML 1.0
+
+description: |
+  This trait defines a set of common response codes for error handling. All response bodies conform to the JSON format: `{ message: "", cause: ""}`
+
+responses:
+  400: # Bad Request
+    description: |
+      The request cannot be performed due to a malformed request syntax, and invalid request message, or an invalid request header.
+  401: # Unauthorized
+    description: |
+      The required security context has not been passed in
+  403: # Forbidden
+    description: |
+      The required token to access the utility resources has not been specidied
+  405: # Invalid Method
+    description: |
+      The specified method against the resource is invalid
+  406: # Not Acceptable
+    description: |
+      Not Acceptable
+  415: # Unsupported Media Type
+    description: |
+      The specified content type in the request is not supported
+  500: # Internal Server Error
+    description: |
+      The service is currently experiencing some technical issues
